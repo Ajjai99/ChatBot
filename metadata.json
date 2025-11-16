@@ -1,0 +1,5 @@
+{
+  "name": "AI Customer Support Chatbot",
+  "description": "An interactive and visually appealing AI chatbot interface designed for customer support, built with React and powered by the Gemini API for intelligent, human-like conversations.",
+  "requestFramePermissions": []
+}

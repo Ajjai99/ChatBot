@@ -27,11 +27,13 @@ export const MessageList: React.FC<MessageListProps> = ({
             ref={scrollContainerRef}
             onScroll={onScroll}
             className="flex-1 p-6 overflow-y-auto custom-scrollbar"
+            role="log"
+            aria-live="polite"
         >
-            {messages.length > 0 ? messages.map(msg => (
+            {messages.length > 0 ? messages.map((msg, index) => (
                 <React.Fragment key={msg.id}>
                     <MessageBubble message={msg} searchQuery={searchQuery} />
-                    {msg.quickReplies && !searchQuery && (
+                    {msg.quickReplies && !searchQuery && index === messages.length - 1 && (
                        <QuickReplyButtons replies={msg.quickReplies} onReplyClick={onQuickReplyClick} />
                     )}
                 </React.Fragment>

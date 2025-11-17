@@ -179,7 +179,12 @@ const ChatWidget: React.FC = () => {
     }, [messages, searchQuery]);
 
     return (
-        <div className="w-full max-w-md mx-auto h-[700px] flex flex-col bg-white rounded-2xl shadow-2xl relative overflow-hidden">
+        <div 
+            className="w-full max-w-md mx-auto h-[700px] flex flex-col bg-white rounded-2xl shadow-2xl relative overflow-hidden"
+            role="application"
+            aria-roledescription="Chat widget"
+            aria-label="Customer support chat"
+        >
              <ChatHeader 
                 userAvatar={userAvatar} 
                 onAvatarClick={() => setIsAvatarModalOpen(true)}
@@ -210,6 +215,8 @@ const ChatWidget: React.FC = () => {
                 ref={fileInputRef}
                 onChange={handleFileSelect}
                 className="hidden"
+                aria-hidden="true"
+                tabIndex={-1}
             />
 
             <MessageInput 
@@ -217,6 +224,7 @@ const ChatWidget: React.FC = () => {
                 setInputValue={setInputValue}
                 handleFormSubmit={handleFormSubmit}
                 handleAttachmentClick={handleAttachmentClick}
+                isEmojiPickerOpen={isEmojiPickerOpen}
                 toggleEmojiPicker={() => setIsEmojiPickerOpen(prev => !prev)}
             />
             
